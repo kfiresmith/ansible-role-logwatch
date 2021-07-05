@@ -1,0 +1,39 @@
+# {{ ansible_managed }}
+
+########################################################
+# This was written and is maintained by:
+#    Kirk Bauer <kirk@kaybee.org>
+#
+# Please send all comments, suggestions, bug reports,
+#    etc, to logwatch-devel@lists.sourceforge.net.
+#
+########################################################
+
+#######################################################
+#Ignore entries for logwatch.
+######################################################
+#This file is used to filter out any lines that you
+# do not want to see in your reports.
+#
+#Simply cut and paste as much of the line as needed
+# below be warned that it is possible to really
+# limit your reports by placing a bad value below.
+#
+#BAD EXMAPLE: putting a single "." alone on a line will
+# filter all output
+######################################################
+
+#STARTTLS=server: file /etc/mail/certs/cert.pem unsafe
+#pam_succeed_if: requirement "uid < 100" not met
+
+# WHOI supplementary note:
+# You must escape any quotes for the string to match.
+# For example, to ignore the string: apparmor="ALLOWED"
+# you must create a single-line entry of: apparmor=\"ALLOWED\"
+{% if logwatch_ignores is defined %}
+  {% for entry in logwatch_ignores %}
+{{ entry }}
+  {% endfor %}
+{% endif %}
+
+# vi: shiftwidth=3 tabstop=3 syntax=perl et

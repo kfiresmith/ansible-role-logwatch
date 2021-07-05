@@ -1,0 +1,76 @@
+---
+# defaults file for kfiresmith.logwatch
+
+# Logwatch ignores strings for the logwatch ignores.conf file
+# Each list entry must be a string that when encountered in the compiled
+# logwatch report results in the full report line being discarded and
+# replaced with a counter of ignored entries.
+#
+# IMPORTANT: You must escape any quotes for the string to match.
+# For example, to ignore the string: apparmor="ALLOWED"
+# you must create a single-line entry of: apparmor=\"ALLOWED\"
+#
+# List of strings to match which would then be ignored in report:
+# logwatch_ignores:
+#   - apparmor=\"ALLOWED\"
+#   - ACPI BIOS Error
+
+# Logwatch temp directory where the report is compiled
+# Default is /tmp
+# logwatch_tmpdir:
+
+# This is the output method. stdout [default], mail, file
+# logwatch_output:
+
+# Report Format - text [default], html
+# logwatch_format:
+
+# Encoding to use - none [default], base64
+# logwatch_encode:
+
+# Input Encoding - see logwatch.conf template
+# logwatch_charencoding:
+
+# Email report destination - default 'root'
+# logwatch_mailto:
+
+# Email report sender - default 'Logwatch'
+# logwatch_mailfrom:
+
+# Logwatch filename - default '/tmp/logwatch'
+# logwatch_filename:
+
+# Use archives? See logwatch.conf template for more information
+# logwatch_archives:
+
+# Logwatch range for report - options are 'All', 'Today', 'Yesterday' [default]
+# logwatch_range:
+
+# Logwatch detail level for report - 'Low' [default], 'Med', 'High'
+# logwatch_detail:
+
+# Logwatch Service - should be left as 'All' for most people.
+# See logwatch.conf template for more information.
+# logwatch_service:
+
+# Logwatch report items trimmed by default follow as 'logwatch_trim_*'
+# You may override these defaults by updating the booleans to 'False'
+# Prevents execution of zz-network service, which prints useful network configuration info.
+logwatch_trim_netinfo: True
+# Prevents execution of zz-sys service, which prints useful system configuration info.
+logwatch_trim_sysinfo: True
+# Prevents execution of eximstats service, which is a wrapper for the eximstats program.
+logwatch_trim_eximstats: True
+
+# Services to disable from reporting.  This should be a list of script names to exclude,
+# as they are named within /usr/share/logwatch/scripts/services/.  One script/service per
+# line.  Each list entry will then be declared within logwatch.conf as 'Service = -foo_service'
+# logwatch_disabled_services:
+#   - zz-disk_space
+#   - zz-lm_sensors
+
+# Logwatch mailer. See logwatch.conf template for more information.
+# logwatch_mailer:
+
+# Logwatch log root directory.  See logwatch.conf template for more information.
+# logwatch_logdir:
