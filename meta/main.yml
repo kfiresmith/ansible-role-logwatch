@@ -1,6 +1,7 @@
 ---
 
 galaxy_info:
+  role_name: logwatch
   author: Kodiak Firesmith
   description: 'install and configure logwatch'
 
