@@ -160,10 +160,6 @@ Service = "-eximstats"      # Prevents execution of eximstats service, which
 #Service = pam_pwdb        # PAM_pwdb messages - usually quite a bit
 #Service = pam             # General PAM messages... usually not many
 
-# WHOI customizations: trim default services
-Service = "-zz-disk_space"
-Service = "-zz-lm_sensors"
-
 {% if logwatch_disabled_services is defined %}
   {% for entry in logwatch_disabled_services %}
 Service = "-{{ entry }}"
